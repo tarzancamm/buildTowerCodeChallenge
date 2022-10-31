@@ -18,10 +18,15 @@
 // ]
 
 const pyramid = (numFloors) => {
-    // fill(value, start, end)
+    // fill(value, start, end). Creates number of stars that are sent into function
     return Array(numFloors).fill('*')
-    // For each element, create left side empty space, input *, create right side empty space
-    .map((e, i) => ' '.repeat(numFloors - i - 1) + e.repeat(i + 1).split('').join(' ') + ' '.repeat(numFloors - i - 1))
+    // For each element (*), create left side empty space
+    .map((e, i) => ' '.repeat(numFloors - i - 1) 
+    // Then input required stars, splits stars to be individual, then joins stars with space between them
+    + e.repeat(i + 1).split('').join(' ') 
+    // Then create right side empty space
+    + ' '.repeat(numFloors - i - 1))
+
     // // Turn array into string and use \n to create new lines
     .join('\n');
 }
